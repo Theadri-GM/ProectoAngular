@@ -1,0 +1,31 @@
+<div>
+<label for="name"> Name </label>
+<input id="name" type="text" formControlName="name" />
+<div *ngIf="checkoutForm.get('name').invalid && (checkoutForm.get('name').dirty || checkoutForm.get('name').touched)">
+  <div *ngIf="checkoutForm.get('name').errors.required">
+    Name is required.
+  </div>
+  <div *ngIf="checkoutForm.get('name').errors.minlength">
+    Name must be at least 3 characters long.
+  </div>
+</div>
+</div>
+
+<div>
+<label for="address"> Address </label>
+<input id="address" type="text" formControlName="address" />
+<div *ngIf="checkoutForm.get('address').invalid && (checkoutForm.get('address').dirty || checkoutForm.get('address').touched)">
+  <div *ngIf="checkoutForm.get('address').errors.required">
+    Address is required.
+  </div>
+</div>
+</div>
+
+<div>
+<mat-checkbox formControlName="agreeToTerms">I agree to the terms and conditions</mat-checkbox>
+<div *ngIf="checkoutForm.get('agreeToTerms').invalid && (checkoutForm.get('agreeToTerms').dirty || checkoutForm.get('agreeToTerms').touched)">
+  <div *ngIf="checkoutForm.get('agreeToTerms').errors.requiredTrue">
+    You must agree to the terms and conditions to continue.
+  </div>
+</div>
+</div>
